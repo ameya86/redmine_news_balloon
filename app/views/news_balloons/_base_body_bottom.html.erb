@@ -1,0 +1,12 @@
+<% if User.current.last_before_access_on && has_news_since_last_login_on? %>
+<div id="news-balloon" style="position: fixed; right: 8px; bottom: 8px;">
+  <div style="background-color: #fff0b0; padding: 0px 4px 10px 6px;  border-radius: 8px 8px 8px 8px; min-height: 16px; min-width: 200px;">
+    <%= link_to_function('&times;', "$('news-balloon').hide();", :style => "float: right;") %><br />
+    <div style="text-align: center;">
+    <%= link_to(l(:text_news_add_count, :count => count_news_since_last_login_on), {:controller => 'news', :action => 'index', :project_id => nil}) %>
+    </div>
+  </div>
+  <div style="clear: both;"></div>
+  <div style="color: #fff0b0; text-align: right; margin-top: -3px; margin-right: 8px;">&#9660;</div>
+</div>
+<% end %>
